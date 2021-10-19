@@ -2,9 +2,9 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const app = require('../app')
 
-const { URL_DB, PORT = 3000 } = process.env
+const { DB_HOST, PORT = 3000 } = process.env
 
-mongoose.connect(URL_DB, {
+mongoose.connect(DB_HOST, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
