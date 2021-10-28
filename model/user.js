@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose')
 const Joi = require('joi')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { v4 } = require('uuid')
 
 const userSchema = Schema({
   password: {
@@ -26,7 +27,16 @@ const userSchema = Schema({
   avatarURL: {
     type: String,
     default: null,
-  }
+  },
+  verify: {
+    type: Boolean,
+    default: false,
+  },
+  verifyToken: {
+    type: String,
+    required: [true, 'Verify token is required'],
+    default: v4()
+  },
 }, { versionKey: false, timestamps: true })
 
 userSchema.methods.setPassword = function(password) {

@@ -9,6 +9,8 @@ const login = require('./auth/login')
 const logout = require('./auth/logout')
 const currentUser = require('./auth/current')
 const add = require('./auth/add')
+const verify = require('./auth/verify')
+const sendVerify = require('./auth/sendVerify')
 
 module.exports = {
   listContacts,
@@ -21,5 +23,6 @@ module.exports = {
   login,
   logout,
   currentUser,
-  add
+  add,
+  verify
 }
